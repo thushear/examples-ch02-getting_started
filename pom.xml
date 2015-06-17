@@ -23,24 +23,40 @@
 	 </plugins>
   </build>
 
-  <repositories>
+<!--  <repositories>
         
-        <!-- Repository where we can found the storm dependencies  -->
+        &lt;!&ndash; Repository where we can found the storm dependencies  &ndash;&gt;
         <repository>
             <id>clojars.org</id>
             <url>http://clojars.org/repo</url>
         </repository>
 
-  </repositories>
+  </repositories>-->
 
   <dependencies>
 
         <!-- Storm Dependency -->
-        <dependency> 
+
+      <dependency>
+          <groupId>org.apache.storm</groupId>
+          <artifactId>storm-core</artifactId>
+          <version>0.9.3</version>
+      </dependency>
+
+    <!--  <dependency>
+          <groupId>org.apache.storm</groupId>
+          <artifactId>storm-core</artifactId>
+          <version>0.9.3</version>
+          <classifier>sources</classifier>
+          <scope>code</scope>
+      </dependency>-->
+<!--
+      <dependency>
           <groupId>storm</groupId>
           <artifactId>storm</artifactId>
           <version>0.7.1</version>
        </dependency>
+-->
 
   </dependencies>
 

@@ -8,6 +8,8 @@ import bolts.WordNormalizer;
 
 
 public class TopologyMain {
+
+
 	public static void main(String[] args) throws InterruptedException {
          
         //Topology definition
@@ -15,7 +17,7 @@ public class TopologyMain {
 		builder.setSpout("word-reader",new WordReader());
 		builder.setBolt("word-normalizer", new WordNormalizer())
 			.shuffleGrouping("word-reader");
-		builder.setBolt("word-counter", new WordCounter(),1)
+		builder.setBolt("word-counter", new WordCounter(),2)
 			.fieldsGrouping("word-normalizer", new Fields("word"));
 		
         //Configuration
@@ -26,7 +28,7 @@ public class TopologyMain {
 		conf.put(Config.TOPOLOGY_MAX_SPOUT_PENDING, 1);
 		LocalCluster cluster = new LocalCluster();
 		cluster.submitTopology("Getting-Started-Toplogie", conf, builder.createTopology());
-		Thread.sleep(1000);
+		Thread.sleep(20000);
 		cluster.shutdown();
 	}
 }

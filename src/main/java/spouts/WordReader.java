@@ -14,12 +14,17 @@ import backtype.storm.tuple.Values;
 public class WordReader extends BaseRichSpout {
 
 	private SpoutOutputCollector collector;
+
 	private FileReader fileReader;
+
 	private boolean completed = false;
+
 	public void ack(Object msgId) {
 		System.out.println("OK:"+msgId);
 	}
+
 	public void close() {}
+
 	public void fail(Object msgId) {
 		System.out.println("FAIL:"+msgId);
 	}
